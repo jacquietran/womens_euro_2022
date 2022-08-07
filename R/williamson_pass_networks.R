@@ -94,8 +94,8 @@ passes_selected <- passes_england %>%
 
 # Convert data frame to graph
 passes_graph <- tidygraph::as_tbl_graph(passes_selected) %>%
-  activate(nodes) %>%
-  activate(edges) %>%
+  tidygraph::activate(nodes) %>%
+  tidygraph::activate(edges) %>%
   group_by(match_id) %>%
   mutate(edge_weights = runif(n())) %>%
   ungroup()
